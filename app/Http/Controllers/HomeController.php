@@ -14,15 +14,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $mahasiswa = Mahasiswa::all();
-        $dosen = Dosen::all();
-        $mataKuliah = MataKuliah::all();
-        $user = User::all();
+        // $mahasiswa = Mahasiswa::all();
+        // $dosen = Dosen::all();
+        // $mataKuliah = MataKuliah::all();
+        // $user = User::all();
 
-        $loggedInUser = Auth::user();
+        // $loggedInUser = Auth::user();
 
 
-        return view("home", compact('mahasiswa','dosen','mataKuliah','loggedInUser'));
+        return view("home");
     }
 
     public function login()

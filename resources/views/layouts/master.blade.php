@@ -109,11 +109,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-3 my-1 text-dark {{ preg_match('/mahasiswa/',Route::current()->uri) == true ? 'bg-gradient-secondary shadow border-radius-xl mx-3 my-1 text-white font-weight-bolder' : '' }}"
-                        href="/mahasiswa"
-                        style="{{ preg_match('/mahasiswa/',Route::current()->uri) == true ? 'background: linear-gradient(45deg, #1b3c5fc9, #1B3C5F);background-size: cover;' : '' }}">
+                    <a class="nav-link mx-3 my-1 text-dark {{ preg_match('/mentor/',Route::current()->uri) == true ? 'bg-gradient-secondary shadow border-radius-xl mx-3 my-1 text-white font-weight-bolder' : '' }}"
+                        href="/mentor"
+                        style="{{ preg_match('/mentor/',Route::current()->uri) == true ? 'background: linear-gradient(45deg, #1b3c5fc9, #1B3C5F);background-size: cover;' : '' }}">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <span class="nav-link-text ms-1 font-weight-bold">Mahasiswa</span>
+                        <span class="nav-link-text ms-1 font-weight-bold">Mentor</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -138,31 +138,6 @@
                         style="{{ preg_match('/ruang/',Route::current()->uri) == true ? 'background: linear-gradient(45deg, #1b3c5fc9, #1B3C5F);background-size: cover;' : '' }}">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                         <span class="nav-link-text ms-1 font-weight-bold">Ruang Kelas</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-3 my-1 text-dark {{ preg_match('/tempat/',Route::current()->uri) == true ? 'bg-gradient-secondary shadow border-radius-xl mx-3 my-1 text-white font-weight-bolder' : '' }}"
-                        href="/tempat"
-                        style="{{ preg_match('/tempat/',Route::current()->uri) == true ? 'background: linear-gradient(45deg, #1b3c5fc9, #1B3C5F);background-size: cover;' : '' }}">
-                        <i class="fas fa-map" aria-hidden="true"></i>
-                        <span class="nav-link-text ms-1 font-weight-bold">Kelas Mata Kuliah</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-3 my-1 text-dark {{ preg_match('/ambil_kuliah/',Route::current()->uri) == true ? 'bg-gradient-secondary shadow border-radius-xl mx-3 my-1 text-white font-weight-bolder' : '' }}"
-                        href="/ambil_kuliah"
-                        style="{{ preg_match('/ambil_kuliah/',Route::current()->uri) == true ? 'background: linear-gradient(45deg, #1b3c5fc9, #1B3C5F);background-size: cover;' : '' }}">
-                        <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
-                        <span class="nav-link-text ms-1 font-weight-bold">Ambil Mata Kuliah</span>
-                    </a>
-                </li>
-                <h6 class="ps-4 my-2 text-uppercase text-xs font-weight-bolder opacity-6">Histori</h6>
-                <li class="nav-item">
-                    <a class="nav-link mx-3 my-1 text-dark {{ preg_match('/histori_mk/',Route::current()->uri) == true ? 'bg-gradient-secondary shadow border-radius-xl mx-3 my-1 text-white font-weight-bolder' : '' }}"
-                        href="/histori_mk"
-                        style="{{ preg_match('/histori_mk/',Route::current()->uri) == true ? 'background: linear-gradient(45deg, #1b3c5fc9, #1B3C5F);background-size: cover;' : '' }}">
-                        <i class="fa fa-save" aria-hidden="true"></i>
-                        <span class="nav-link-text ms-1 font-weight-bold">Audit Mata Kuliah</span>
                     </a>
                 </li>
                 <h6 class="ps-4 my-2 text-uppercase text-xs font-weight-bolder opacity-6">User Configuration</h6>
@@ -235,9 +210,8 @@
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="/user/{{{$loggedInUser->id}}}" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none">{{ ucfirst($loggedInUser->name) }}</span>
+                                <span class="d-sm-inline d-none"></span>
                             </a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">

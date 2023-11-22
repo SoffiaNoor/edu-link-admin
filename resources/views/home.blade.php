@@ -2,9 +2,6 @@
 
 @section('content')
 <div class="container-fluid px-3 pt-1">
-    @if($loggedInUser)
-    <h4 class="text-white font-weight-bolder">Selamat Datang, {{ ucfirst($loggedInUser->name) }}</h4>
-    @endif
     <div class="row">
         <div class="col-sm-4 mt-2" data-aos="fade-up" data-aos-delay="300" data-aos-easing="ease-in-sine">
             <div class="info-horizontal bg-gradient-danger border-radius-xl p-3">
@@ -15,7 +12,6 @@
                     <h6 class="text-white font-weight-bolder">Jumlah Mahasiswa RUNGKAD</h6>
                     <h2 class="text-white"
                         style="background: linear-gradient(to right, #ffffffc9, #f1f8ff);-webkit-text-fill-color: transparent;-webkit-background-clip: text;">
-                        {{ \App\Models\Mahasiswa::count() }}
                     </h2>
                     <hr class="m-0" style="background-color:#ffffff;height:10px;border-radius:40px;width:50%">
                     <a href="/mahasiswa" class="text-light icon-move-right font-weight-bolder"
@@ -35,7 +31,6 @@
                     <h6 class="text-white font-weight-bolder">Jumlah Dosen RUNGKAD</h6>
                     <h2 class="text-white"
                         style="background: linear-gradient(to right, #ffffffc9, #f1f8ff);-webkit-text-fill-color: transparent;-webkit-background-clip: text;">
-                        {{ \App\Models\Dosen::count() }}
                     </h2>
                     <hr class="m-0" style="background-color:#ffffff;height:10px;border-radius:40px;width:50%">
                     <a href="/dosen" class="text-light icon-move-right font-weight-bolder" style="font-style:italic">
@@ -54,7 +49,6 @@
                     <h6 class="text-white font-weight-bolder">Jumlah Mata Kuliah RUNGKAD</h6>
                     <h2 class="text-white"
                         style="background: linear-gradient(to right, #ffffffc9, #f1f8ff);-webkit-text-fill-color: transparent;-webkit-background-clip: text;">
-                        {{ \App\Models\MataKuliah::count() }}
                     </h2>
                     <hr class="m-0" style="background-color:#ffffff;height:10px;border-radius:40px;width:50%">
                     <a href="/dosen" class="text-light icon-move-right font-weight-bolder" style="font-style:italic">

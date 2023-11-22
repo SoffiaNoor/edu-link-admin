@@ -2,50 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bidang;
 use Illuminate\Http\Request;
-use App\Models\Mahasiswa;
+use App\Models\Mentor;
 use App\Models\Dosen;
-class MahasiswaController extends Controller
+class MentorController extends Controller
 {
     public function index()
     {
-        $mahasiswa = Mahasiswa::paginate(5);
+        $mentor = Mentor::paginate(5);
 
-        return view("mahasiswa.index", compact('mahasiswa'));
+        $bidang = Bidang:: all();
+
+        return view("mentor.index", compact('mentor', 'bidang'));
     }
 
     public function create()
     {
-        $mahasiswa = Mahasiswa::all();
-        $model1 = new Mahasiswa();
+        $mentor = mentor::all();
+        $model1 = new mentor();
         $dosen = Dosen::all();
         $model2 = new Dosen();
-        return view("mahasiswa.create", compact('mahasiswa','model1','dosen','model2'));
+        return view("mentor.create", compact('mentor','model1','dosen','model2'));
     }
 
     public function show(string $NRP)
     {
-        $mahasiswa = Mahasiswa::where('NRP', $NRP)->first();
+        $mentor = mentor::where('NRP', $NRP)->first();
         $dosen = Dosen::all();
-        return view("mahasiswa.view", compact('mahasiswa', 'dosen'));
+        return view("mentor.view", compact('mentor', 'dosen'));
     }
-    public function edit(Mahasiswa $mahasiswa)
+    public function edit(mentor $mentor)
     {
         $dosenWali = Dosen::all();
-        return view("mahasiswa.update", compact('mahasiswa', 'dosenWali'));
+        return view("mentor.update", compact('mentor', 'dosenWali'));
     }
 
     public function destroy($NRP)
     {
-        $mahasiswa = Mahasiswa::find($NRP);
+        $mentor = mentor::find($NRP);
 
-        if (!$mahasiswa) {
-            return redirect()->route('mahasiswa.index')->with('error', 'Mahasiswa tidak ditemukan!');
+        if (!$mentor) {
+            return redirect()->route('mentor.index')->with('error', 'mentor tidak ditemukan!');
         }
 
-        $mahasiswa->delete();
+        $mentor->delete();
 
-        return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa berhasil dihapus!');
+        return redirect()->route('mentor.index')->with('success', 'mentor berhasil dihapus!');
     }
 
     public function store(Request $request)
@@ -72,15 +75,15 @@ class MahasiswaController extends Controller
                 'JenisKelamin' => $request->input('JenisKelamin')
             ];
     
-            Mahasiswa::create($data);
+            mentor::create($data);
     
-            return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa berhasil ditambah!');
+            return redirect()->route('mentor.index')->with('success', 'mentor berhasil ditambah!');
         } catch (\Exception $e) {
-            return redirect()->route('mahasiswa.create')->with('error', 'Gagal input Mahasiswa. Pastikan data yang Anda masukkan benar.');
+            return redirect()->route('mentor.create')->with('error', 'Gagal input mentor. Pastikan data yang Anda masukkan benar.');
         }
     }
 
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, mentor $mentor)
     {
         $this->validate($request, [
             'NamaMhs' => 'required|string',
@@ -93,9 +96,9 @@ class MahasiswaController extends Controller
             'IPK.min' => 'IPK harus lebih dari atau sama dengan :min.',
         ]);
 
-        $mahasiswa->update($request->all());
+        $mentor->update($request->all());
 
-        return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa berhasil diperbarui!');
+        return redirect()->route('mentor.index')->with('success', 'mentor berhasil diperbarui!');
 
     }
 
